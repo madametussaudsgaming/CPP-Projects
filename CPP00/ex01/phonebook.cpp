@@ -6,28 +6,18 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 18:26:47 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/10/05 21:59:09 by rpadasia         ###   ########.fr       */
+/*   Updated: 2025/10/27 13:31:03 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "contact.hpp"
 #include "phonebook.hpp"
 
-int is_valid_number(std::string num)
+bool is_valid_number(const std::string num)
 {
-	int i = 0;
-	while (num[i])
-	{
-		if (num[i] == ' ')
-		{
-			i++;
-			continue;
-		}
-		if (num[i] < '0' || num[i] > '9')
-			return (0);
-		i++;
-	}
-	return (1);
+	std::string::const_iterator it = num.begin();
+	while (it != num.end() && std::isdigit(*it)) { ++it; }
+	return (!num.empty() && (it == num.end()));
 }
 
 void Phonebook::add_contact()
@@ -75,8 +65,6 @@ void Phonebook::add_contact()
 	}
 	contacts[next_index].setContact(first, last, nickname, number, secret);
 	next_index = ((next_index + 1) % 8);
-	if (total_contacts < 8)
-		total_contacts++;
 }
 
 void Phonebook::search_contact(std::string index)
