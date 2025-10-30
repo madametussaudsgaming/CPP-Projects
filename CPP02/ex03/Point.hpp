@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 15:45:39 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/10/30 17:07:11 by rpadasia         ###   ########.fr       */
+/*   Updated: 2025/10/30 18:16:12 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,5 @@ class Point
 	const Fixed get_x() const;
 	const Fixed get_y() const;
 };
+
+bool bsp ( Point const a, Point const b, Point const c, Point const point);

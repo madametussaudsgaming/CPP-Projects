@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 15:45:33 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/10/30 17:07:17 by rpadasia         ###   ########.fr       */
+/*   Updated: 2025/10/30 18:17:23 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Point::Point(const Point& other) : x(other.x), y(other.y) {}
 
 Point& Point::operator=(const Point& other)
 {
+	(void)other;
 	std::cerr<<"Cannot assign to const Point"<<std::endl;
 	return (*this);
 }

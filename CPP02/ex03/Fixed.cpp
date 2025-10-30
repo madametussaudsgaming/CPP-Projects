@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:15:01 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/10/30 16:01:16 by rpadasia         ###   ########.fr       */
+/*   Updated: 2025/10/30 18:19:10 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,33 @@
 /*CONSTRUCTORS*/
 Fixed::Fixed()
 {
-	std::cout<<"Default constructor called"<<std::endl;
+	// std::cout<<"Default constructor called"<<std::endl;
 	fp_Num_Val = 0;
 }
 
 Fixed::Fixed(const int param)
 {
-	std::cout<<"Integer constructor called"<<std::endl;
+	// std::cout<<"Integer constructor called"<<std::endl;
 	fp_Num_Val = (param << frac_Bits);
 }
 
 /*param * 256.0*/
 Fixed::Fixed(const float param)
 {
-	std::cout<<"Float constructor called"<<std::endl;
+	// std::cout<<"Float constructor called"<<std::endl;
 	fp_Num_Val = roundf(param * float(1 << frac_Bits));
 }
 
 /*COPY CONSTRUCTOR*/
 Fixed::Fixed(const Fixed& variables) {
-	std::cout<<"Copy constructor called"<<std::endl;
+	// std::cout<<"Copy constructor called"<<std::endl;
 	*this = variables;
 }
 
 /*DESTURCTOR*/
 Fixed::~Fixed()
 {
-	std::cout<<"Destructor called"<<std::endl;
+	// std::cout<<"Destructor called"<<std::endl;
 }
 
 
@@ -93,7 +93,7 @@ const Fixed& Fixed::max(const Fixed& fp1, const Fixed& fp2)
 
 Fixed& Fixed::operator=(const Fixed& variables)
 {
-	std::cout<<"Copy assignment operator called"<<std::endl;
+	// std::cout<<"Copy assignment operator called"<<std::endl;
 	this->fp_Num_Val = variables.getRawBits();
 	return (*this);
 }

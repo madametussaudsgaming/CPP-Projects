@@ -6,13 +6,13 @@
 #    By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 15:14:33 by rpadasia          #+#    #+#              #
-#    Updated: 2025/10/30 15:42:45 by rpadasia         ###   ########.fr        #
+#    Updated: 2025/10/30 18:08:30 by rpadasia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = BSP
 
-SRCS = main.cpp Fixed.cpp
+SRCS = main.cpp Fixed.cpp bsp.cpp Point.cpp
 OBJDIR = obj
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 

@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 15:43:19 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/10/30 17:46:15 by rpadasia         ###   ########.fr       */
+/*   Updated: 2025/10/30 18:24:56 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 Fixed calculate_area(Point const a, Point const b, Point const c)
 {
 	Fixed area;
-	Fixed(0.5f) * (a.get_x() * (b.get_y() - c.get_y()) + b.get_x() * (c.get_y() - a.get_y()) + c.get_x() * (a.get_y() - b.get_y()));
+	area = ((a.get_x() * (b.get_y() - c.get_y())
+			+ b.get_x()* (c.get_y() - a.get_y())
+			+ c.get_x() * (a.get_y() - b.get_y()))/2);
 	if (area < 0)
 		area = area * -1;
 	return (area);
