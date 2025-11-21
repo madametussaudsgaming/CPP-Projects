@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 17:57:06 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/10/12 18:50:55 by rpadasia         ###   ########.fr       */
+/*   Updated: 2025/11/21 18:49:07 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ std::string replaceWord(std::string line, std::string target, std::string replac
 	size_t		pos = 0;
 	size_t		found = 0;
 
+	//npos = null position :>
 	while ((found = line.find(target, pos)) != std::string::npos)
 	{
 		result += line.substr(pos, found - pos);

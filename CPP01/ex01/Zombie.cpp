@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 23:50:28 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/10/10 22:43:30 by rpadasia         ###   ########.fr       */
+/*   Updated: 2025/11/21 18:29:14 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@ Zombie::Zombie(std::string n)
 	setName(n);
 	announce();
 }
+
+Zombie::Zombie(Zombie& variables) {
+	std::cout<<"Copy constructor called"<<std::endl;
+	*this = variables;
+}
+
+Zombie& Zombie::operator=(const Zombie& variables) {
+	std::cout<<"Copy assignment operator called"<<std::endl;
+	this->name = variables.name;
+	return (*this);
+}
+
 
 Zombie::~Zombie() {std::cout<<name<<" was destroyed."<<std::endl;}
 
