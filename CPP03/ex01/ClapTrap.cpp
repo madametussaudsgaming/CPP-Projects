@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 22:20:14 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/11/25 13:51:01 by rpadasia         ###   ########.fr       */
+/*   Updated: 2025/11/25 17:44:54 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ ClapTrap::ClapTrap()
 {
 	std::cout<<"ClapTrap Default constructor called"<<std::endl;
 	name = "Defualt";
+	hit_points = 10;
+	energy_points = 10;
+	attack_damage = 0;
 }
 
 ClapTrap::ClapTrap(std::string tbname)
@@ -76,17 +79,26 @@ void ClapTrap::takeDamage(unsigned int amount)
 		this->hit_points = 0;
 	else
 	{
-		std::cout<<"This Claptrap is already dead!"<<std::endl;
+		std::cout<<"This ClapTrap is already dead!"<<std::endl;
 		return ;
 	}
-	std::cout<<"Claptrap "<<name<<" took "<<amount<<" points of damage!"<<std::endl;
-	std::cout<<"Claptrap has "<<this->hit_points<<" HP left!"<<std::endl;
+	std::cout<<"ClapTrap "<<name<<" took "<<amount<<" points of damage!"<<std::endl;
+	std::cout<<"ClapTrap has "<<this->hit_points<<" HP left!"<<std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	hit_points += amount;
-	std::cout<<"Claptrap "<<name<<" was repaired for "<<amount<<" HP!"<<std::endl;
+	if (this->energy_points > 0 && this->hit_points > 0)
+	{
+		this->hit_points += amount;
+		std::cout<<"ClapTrap "<<this->name<<" repaired itself for "<<amount<<" HP!"<<std::endl;
+		std::cout<<"ClapTrap now has "<<this->hit_points<<" HP!"<<std::endl;
+		this->energy_points--;
+	}
+	else if (this->energy_points == 0)
+		std::cout<<"ClapTrap is too exhausted to repair itself."<<std::endl;
+	else
+		std::cout<<"Dead ClapTraps can't repair themselves."<<std::endl;
 }
 
 void ClapTrap::displayStats(void)

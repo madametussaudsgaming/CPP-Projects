@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 22:20:12 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/11/25 13:45:49 by rpadasia         ###   ########.fr       */
+/*   Updated: 2025/11/25 20:47:24 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,30 @@
 
 int main(void)
 {
-	ClapTrap a;
-	ClapTrap b("Cody");
-	a.attack("some other robot");
-	a.takeDamage(10);
-	a.takeDamage(10);
-	a.beRepaired(5);
+	std::cout << "=== Testing ClapTrap ===" << std::endl;
+	ClapTrap clap("Clappy");
+	clap.attack("target");
+	clap.takeDamage(5);
+	clap.beRepaired(3);
+	clap.displayStats();
+
+	std::cout << "\n=== Testing ScavTrap ===" << std::endl;
+	ScavTrap scav("Scavvy");
+	scav.attack("enemy");
+	scav.takeDamage(30);
+	scav.beRepaired(20);
+	scav.guardGate();
+	scav.guardGate(); // Try again to test the already guarding message
+
+	std::cout << "\n=== Testing Copy Constructor ===" << std::endl;
+	ScavTrap scav2(scav);
+	scav2.attack("another enemy");
+
+	std::cout << "\n=== Testing Assignment Operator ===" << std::endl;
+	ScavTrap scav3("Temporary");
+	scav3 = scav;
+	scav3.attack("yet another enemy");
+
+	std::cout << "\n=== Testing Destruction Chain ===" << std::endl;
+	return 0;
 }

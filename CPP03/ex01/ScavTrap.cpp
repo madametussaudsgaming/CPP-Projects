@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 23:14:20 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/11/25 13:39:42 by rpadasia         ###   ########.fr       */
+/*   Updated: 2025/11/25 20:11:50 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ScavTrap::ScavTrap(): ClapTrap()
 	std::cout<<"ScavTrap Default Constructor called"<<std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &og): ClapTrap()
+ScavTrap::ScavTrap(const ScavTrap &og): ClapTrap(og)
 {
 	this->guarding_gate = og.guarding_gate;
 	std::cout << "ScavTrap Copy Constructor called" << std::endl;
@@ -40,11 +40,12 @@ ScavTrap::ScavTrap(std::string name): ClapTrap()
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &og)
 {
-	this->name = og.name;
-	this->hit_points = og.hit_points;
-	this->attack_damage = og.attack_damage;
-	this->energy_points = og.energy_points;
-	this->guarding_gate = og.guarding_gate;
+	std::cout << "ScavTrap Copy Assignment Operator called" << std::endl;
+	if (this != &og)
+	{
+		ClapTrap::operator=(og);
+		this->guarding_gate = og.guarding_gate;
+	}
 	return (*this);
 }
 
@@ -71,7 +72,10 @@ void ScavTrap::attack(const std::string &target)
 void ScavTrap::guardGate()
 {
 	if (this->guarding_gate == false)
+	{
+		std::cout<<"ScavTrap "<<name<<" guards a gate!"<<std::endl;
 		guarding_gate = true;
+	}
 	else
 		std::cout<<"ScavTrap "<<name<<" is already guarding a gate!"<<std::endl;
 }
