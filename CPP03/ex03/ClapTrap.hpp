@@ -6,10 +6,11 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 22:20:10 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/11/25 21:23:01 by rpadasia         ###   ########.fr       */
+/*   Updated: 2025/11/26 15:50:08 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include <iostream>
 
 class ClapTrap

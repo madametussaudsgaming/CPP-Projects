@@ -6,14 +6,14 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 23:14:31 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/11/25 21:23:15 by rpadasia         ###   ########.fr       */
+/*   Updated: 2025/11/26 15:26:03 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ClapTrap.hpp"
 
- class ScavTrap: public ClapTrap
+ class ScavTrap: virtual public ClapTrap
  {
 	private:
 		bool guarding_gate;

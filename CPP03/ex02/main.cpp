@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 22:20:12 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/11/25 21:32:50 by rpadasia         ###   ########.fr       */
+/*   Updated: 2025/11/26 14:37:00 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(void)
 	scav.guardGate(); // Try again to test the already guarding message
 
 	std::cout << "\n=== Testing FragTrap ===" << std::endl;
-	FragTrap frag("Faggy");
+	FragTrap frag("Fraggy");
 	frag.attack("enemy");
 	frag.takeDamage(30);
 	frag.beRepaired(20);
