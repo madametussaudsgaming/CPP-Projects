@@ -6,9 +6,12 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:14:59 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/10/28 20:51:28 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/08 16:24:17 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef EX01_FIXED_HPP
+#define EX01_FIXED_HPP
 
 #include <cmath>
 #include <iostream>
@@ -38,3 +41,5 @@ class Fixed
 };
 
 std::ostream& operator<<(std::ostream &out, const Fixed& fp_Num);
+
+#endif

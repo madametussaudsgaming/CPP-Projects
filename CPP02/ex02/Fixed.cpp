@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:15:01 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/10/28 23:15:12 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/08 16:19:48 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,11 @@ Fixed::Fixed(const int param)
 	fp_Num_Val = (param << frac_Bits);
 }
 
+/*param * 256.0*/
 Fixed::Fixed(const float param)
 {
 	std::cout<<"Float constructor called"<<std::endl;
-	fp_Num_Val = param * (pow(2, frac_Bits));
+	fp_Num_Val = roundf(param * float(1 << frac_Bits));
 }
 
 /*COPY CONSTRUCTOR*/
@@ -60,7 +61,7 @@ void Fixed::setRawBits( int const raw )
 
 float Fixed::toFloat( void ) const
 {
-	return (fp_Num_Val / (pow(2, frac_Bits)));
+	return (static_cast<float>(fp_Num_Val) / (1 << frac_Bits));
 }
 
 int	Fixed::toInt( void ) const

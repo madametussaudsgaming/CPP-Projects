@@ -6,9 +6,12 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:14:59 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/10/30 16:01:07 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/08 16:24:45 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef EX03_FIXED_HPP
+#define EX03_FIXED_HPP
 
 #include <cmath>
 #include <iostream>
@@ -24,11 +27,11 @@ class Fixed
 	Fixed(const Fixed& variables);
 	Fixed(const int param);
 	Fixed(const float param);
+	Fixed& operator=(const Fixed& variables);
 	~Fixed();
 
 
 	/*overloading*/
-	Fixed& operator=(const Fixed& variables);
 
 	int operator==(const Fixed& fp) const;
 	int operator>=(const Fixed& fp) const;
@@ -59,3 +62,5 @@ class Fixed
 };
 
 std::ostream& operator<<(std::ostream &out, const Fixed& fp_Num);
+
+#endif

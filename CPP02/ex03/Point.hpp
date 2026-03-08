@@ -6,9 +6,12 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 15:45:39 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/10/30 18:16:12 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/08 16:25:19 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef EX03_POINT_HPP
+#define EX03_POINT_HPP
 
 #include "Fixed.hpp"
 
@@ -29,3 +32,5 @@ class Point
 };
 
 bool bsp ( Point const a, Point const b, Point const c, Point const point);
+
+#endif

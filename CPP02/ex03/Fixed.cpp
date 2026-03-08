@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:15:01 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/10/30 18:19:10 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/08 16:19:00 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void Fixed::setRawBits( int const raw )
 
 float Fixed::toFloat( void ) const
 {
-	return (float(fp_Num_Val / (pow(2, frac_Bits))));
+	return (static_cast<float>(fp_Num_Val) / (1 << frac_Bits));
 }
 
 int	Fixed::toInt( void ) const
