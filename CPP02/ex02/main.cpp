@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:14:57 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/10/29 18:31:34 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/08 17:06:49 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,3 @@ int	main(void)
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
 }
-
-/*## Complete Decision Tree
-```
-Does the operator modify the original object?
-│
-├─ YES → Does it return the modified object itself?
-│        │
-│        ├─ YES → Return reference (Fixed&)
-│        │        Examples: =, +=, -=, *=, /=, ++a, --a
-│        │
-│        └─ NO → Return copy (Fixed)
-│                 Example: a++ (returns old value)
-│
-└─ NO → Return copy (Fixed)
-         Examples: +, -, *, /, comparison operators
-*/
