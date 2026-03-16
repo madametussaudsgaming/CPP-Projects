@@ -6,9 +6,12 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:04 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/11/26 15:54:08 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/08 17:18:57 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef EX03_DIAMONDTRAP_HPP
+# define EX03_DIAMONDTRAP_HPP
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
@@ -29,3 +32,5 @@ class DiamondTrap: public FragTrap, public ScavTrap
 	void beRepaired(unsigned int amount);
 	void whoAmI(void);
 };
+
+#endif

@@ -6,9 +6,12 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 23:14:31 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/11/25 21:30:07 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/08 17:16:34 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef EX02_SCAVPTRAP_HPP
+# define EX02_SCAVPTRAP_HPP
 
 #include <iostream>
 #include "ClapTrap.hpp"
@@ -29,3 +32,5 @@
 		void beRepaired(unsigned int amount);
 		void guardGate();
  };
+
+ #endif

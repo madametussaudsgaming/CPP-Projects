@@ -6,9 +6,12 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 21:04:54 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/11/26 15:25:59 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/08 17:19:30 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef EX03_FRAGPTRAP_HPP
+# define EX03_FRAGPTRAP_HPP
 
 #include "ClapTrap.hpp"
 
@@ -27,3 +30,5 @@ class FragTrap: virtual public ClapTrap
 		void beRepaired(unsigned int amount);
 		void highFivesGuys(void);
 };
+
+#endif

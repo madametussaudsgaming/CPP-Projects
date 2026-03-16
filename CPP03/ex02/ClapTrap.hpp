@@ -6,11 +6,13 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 22:20:10 by rpadasia          #+#    #+#             */
-/*   Updated: 2025/11/25 21:30:19 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/08 17:15:43 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef EX02_CLAPTRAP_HPP
+# define EX02_CLAPTRAP_HPP
+
 #include <iostream>
 
 class ClapTrap
@@ -33,3 +35,5 @@ class ClapTrap
 	virtual void beRepaired(unsigned int amount);
 	void displayStats(void);
 };
+
+#endif
