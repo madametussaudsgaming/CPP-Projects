@@ -6,13 +6,13 @@
 #    By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/01 16:41:09 by rpadasia          #+#    #+#              #
-#    Updated: 2026/04/02 22:01:06 by rpadasia         ###   ########.fr        #
+#    Updated: 2026/04/02 23:18:18 by rpadasia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bureaucratI
+NAME = bureaucratII
 
-SRC = srcs/Bureaucrat.cpp srcs/main.cpp
+SRC = srcs/Bureaucrat.cpp srcs/main.cpp srcs/Form.cpp
 OBJDIR = obj
 OBJS = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 
