@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 22:05:52 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/04/05 18:09:20 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/04/17 14:25:45 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ const char *AForm::FormNotSignedException::what() const throw()
 	return "[Form not signed!]";
 }
 
-AForm::AForm() : name(), isSigned(false), signGrade(1), execGrade(1) {}
+AForm::AForm() : name("name"), isSigned(false), signGrade(1), execGrade(1) {}
 
 AForm::AForm(const std::string& name, int signgrade, int execgrade) : name(name), signGrade(signgrade), execGrade(execgrade)
 {

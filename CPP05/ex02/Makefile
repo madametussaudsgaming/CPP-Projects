@@ -6,13 +6,16 @@
 #    By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/01 16:41:09 by rpadasia          #+#    #+#              #
-#    Updated: 2026/04/05 18:13:06 by rpadasia         ###   ########.fr        #
+#    Updated: 2026/04/17 14:52:36 by rpadasia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = bureaucratIII
 
-SRC = srcs/Bureaucrat.cpp srcs/main.cpp srcs/AForm.cpp srcs/ShrubberyCreationForm.cpp
+SRC = srcs/Bureaucrat.cpp srcs/main.cpp srcs/AForm.cpp \
+		srcs/ShrubberyCreationForm.cpp \
+		srcs/PresidentialPardonForm.cpp \
+		srcs/RobotomyRequestForm.cpp
 OBJDIR = obj
 OBJS = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 
