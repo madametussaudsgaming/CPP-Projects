@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 13:00:21 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/04/27 16:27:17 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/04/27 17:45:39 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <limits>
 #include <string>
 #include <cmath>
+#include <iomanip>
 
 class ScalarConverter
 {

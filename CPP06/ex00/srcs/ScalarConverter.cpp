@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 13:00:28 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/04/27 17:23:31 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/04/27 17:48:55 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,19 +146,37 @@ static void changeNumbers(const std::string &rep)
 		std::cout<<"Char Representation: OVERFLOWS"<<std::endl;
 	else
 		printChar(static_cast<char>(num));
+
 	if (num < std::numeric_limits<int>::min() || num > std::numeric_limits<int>::max())
 		std::cout<<"Int Representation: OVERFLOWS"<<std::endl;
 	else
 		std::cout<<"Int Representation: "<<std::atoi(rep.c_str())<<std::endl;
-	if (num < std::numeric_limits<float>::min() || num > std::numeric_limits<float>::max())
+
+	if (num < -std::numeric_limits<float>::max() || num > std::numeric_limits<float>::max())
 		std::cout<<"Float Representation: OVERFLOWS"<<std::endl;
 	else
-		std::cout<<"Float Representation: "<<std::strtof(rep.c_str(), NULL)<<"f"<<std::endl;
+	{
+		float f = std::strtof(rep.c_str(), NULL);
+		float fIntPart;
+		std::cout << "Float Representation: ";
+		if (std::modf(f, &fIntPart) == 0.0f)
+			std::cout << std::fixed << std::setprecision(1);
+		std::cout << f << "f" << std::endl;
+		std::cout.unsetf(std::ios::fixed);
+	}
 
-	if (num < std::numeric_limits<double>::min() || num > std::numeric_limits<double>::max())
+	if (num < -std::numeric_limits<double>::max() || num > std::numeric_limits<double>::max())
 		std::cout<<"Double Representation: OVERFLOWS"<<std::endl;
 	else
-		std::cout<<"Double Representation: "<<std::strtod(rep.c_str(), NULL)<<std::endl;
+	{
+		double d = std::strtod(rep.c_str(), NULL);
+		double dIntPart;
+		std::cout << "Double Representation: ";
+		if (std::modf(d, &dIntPart) == 0.0)
+			std::cout << std::fixed << std::setprecision(1);
+		std::cout << d << std::endl;
+		std::cout.unsetf(std::ios::fixed);
+	}
 }
 
 // if (rep == "-inff" || rep == "+inff" ||
