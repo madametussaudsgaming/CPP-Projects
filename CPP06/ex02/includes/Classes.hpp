@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Classes.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
+/*   By: rpadasia <rpadasia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 17:15:57 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/04/28 19:20:45 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/05/02 11:42:59 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CLASSES_HPP
+#define CLASSES_HPP
 
 #include <cstdlib>
 #include <iostream>
@@ -39,3 +42,5 @@ class C : public Base {
 void identify(Base* p);
 void identify(Base& p);
 Base* generate(void);
+
+#endif

@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
+/*   By: rpadasia <rpadasia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 13:00:21 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/04/27 17:45:39 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/05/02 11:42:34 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
 
 #include <cstdlib>
 #include <iostream>
@@ -36,3 +39,5 @@ private:
 };
 
 //get used to find(),size(), empty(),strtold(), strtof()
+
+#endif

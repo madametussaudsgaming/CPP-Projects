@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
+/*   By: rpadasia <rpadasia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 16:19:04 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/04/28 16:42:33 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/05/02 11:42:48 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef SERIALIZER_HPP
+#define SERIALIZER_HPP
 
 #include <cstdlib>
 #include <iostream>
@@ -35,3 +38,5 @@ class Serializer {
 		Serializer& operator=(const Serializer& other);
 		virtual ~Serializer() = 0;
 };
+
+#endif
