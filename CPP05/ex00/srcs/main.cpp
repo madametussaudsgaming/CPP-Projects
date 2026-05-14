@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 16:41:06 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/04/02 22:00:49 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/05/14 18:40:55 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
 	catch (std::exception &e0) {
 		std::cout<<e0.what()<<std::endl;
 	}
-
+	//rmbr to make sure class not empty and operator overloaded correctly
 	try {
 		Bureaucrat Jake = Bureaucrat("Jake", 160);
 	}
