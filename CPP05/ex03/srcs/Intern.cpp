@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
+/*   By: rpadasia <rpadasia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 22:36:33 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/05/16 19:58:38 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/05/18 14:17:12 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ Intern::~Intern(void) {}
 AForm *Intern::makeForm(std::string formName, std::string target) {
 
 	t_form options[] = {
-		{"PresidentialPardonForm", new PresidentialPardonForm(target)},
-		{"RobotomyRequestForm", new RobotomyRequestForm(target)},
-		{"ShrubberyCreationForm", new ShrubberyCreationForm(target)},
+		{"presidential pardon", new PresidentialPardonForm(target)},
+		{"robotomy request", new RobotomyRequestForm(target)},
+		{"shrubbery creation", new ShrubberyCreationForm(target)},
 		{"", NULL }
 	};
 	AForm *formFinal;

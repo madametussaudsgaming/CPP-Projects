@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
+/*   By: rpadasia <rpadasia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 16:41:01 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/05/16 18:38:14 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/05/18 14:13:07 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 
 std::ostream& operator<<(std::ostream &out, const Bureaucrat& gradeName)
 {
-	out<<gradeName.getName()<<", bureaucrat grade "<<gradeName.getGrade();
+	out<<gradeName.getName()<<", bureaucrat grade "<<gradeName.getGrade()<<".";
 	return (out);
 }

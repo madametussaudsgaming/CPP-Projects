@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
+/*   By: rpadasia <rpadasia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 14:44:02 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/04/17 15:00:42 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/05/18 14:18:13 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 	this->canExecute(executor);
 	std::srand(std::time(0));
 	if (rand() % 2)
-    	std::cout << this->getTarget() << " has been robotized!" << std::endl;
+    	std::cout <<"IM DRILLING IT!"<<std::endl<< this->getTarget() << " has been robotized!" << std::endl;
 	else
     	std::cout << this->getTarget() << " failed to robotize!" << std::endl;
 
