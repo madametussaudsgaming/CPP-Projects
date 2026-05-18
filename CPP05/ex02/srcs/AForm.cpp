@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 22:05:52 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/04/17 14:25:45 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/05/16 20:14:42 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,18 +85,13 @@ std::ostream& operator<<(std::ostream& out, const AForm& formOut)
 
 void		AForm::beSigned(Bureaucrat &rando)
 {
-	try {
-		if (rando.getGrade() <= this->getSignGrade())
+	if (rando.getGrade() <= this->getSignGrade())
 		{
 			this->isSigned = true;
 			std::cout<<rando.getName()<<" signed "<<this->getName()<<std::endl;
 		}
 		else
 			throw (GradeTooLowException());
-	}
-	catch (std::exception &e) {
-		std::cout<<rando.getName()<<" couldn't sign "<<this->getName()<<" because "<<e.what()<<std::endl;
-	}
 }
 
 

@@ -6,9 +6,12 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 22:36:23 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/04/17 23:44:11 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/05/18 13:53:40 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef INTERN_HPP
+# define INTERN_HPP
 
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -23,9 +26,11 @@ class Intern {
 		}				t_form;
 	public:
 		Intern();
-		Intern(Intern &ori);
+		Intern(const Intern &ori);
 		Intern& operator=(const Intern& ori);
 		~Intern();
 
 		AForm *makeForm(std::string formName, std::string target);
 };
+
+#endif

@@ -6,13 +6,14 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 16:41:01 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/04/02 23:52:44 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/05/16 20:13:39 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
+#include "../includes/Form.hpp"
 
-Bureaucrat::Bureaucrat() {}
+Bureaucrat::Bureaucrat() : name("DEFAULT"), grade(150) {}
 
 Bureaucrat::Bureaucrat(const std::string& name, int initGrade) : name(name)
 {
@@ -28,7 +29,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& ori) : name(ori.name), grade(ori.grade)
 	std::cout<<"Calling Bureaucrat Copy Constructor."<<std::endl;
 }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat ori)
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& ori)
 {
 	std::cout<<"Calling Bureaucrat Copy Assignment Operator."<<std::endl;
 	this->grade = ori.grade;
@@ -76,6 +77,17 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 
 std::ostream& operator<<(std::ostream &out, const Bureaucrat& gradeName)
 {
-	out<<gradeName.getName()<<"bureaucrat grade "<<gradeName.getGrade();
+	out<<gradeName.getName()<<", bureaucrat grade "<<gradeName.getGrade();
 	return (out);
 }
+
+void		Bureaucrat::signForm(Form& form) {
+	try {
+		form.beSigned(*this);
+	}
+	catch (std::exception &e) {
+		std::cout<<this->getName()<<" couldn't sign "<<form.getName()<<" because "<<e.what()<<std::endl;
+	}
+}
+
+

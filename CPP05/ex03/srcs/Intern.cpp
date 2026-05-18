@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 22:36:33 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/04/17 23:19:14 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/05/16 19:58:38 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Intern::Intern(void) {}
 
-Intern::Intern(Intern &ori) { *this = ori; }
+Intern::Intern(const Intern &ori) { *this = ori; }
 
 Intern& Intern::operator=(const Intern& ori) {
 	(void)ori;

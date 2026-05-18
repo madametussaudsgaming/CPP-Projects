@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 16:41:06 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/04/02 23:51:35 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/04/04 22:03:31 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int main()
 {
-	Bureaucrat John = Bureaucrat("John", 150);
+	Bureaucrat John = Bureaucrat("John", 100);
 
 
 	Form form1 = Form("form1", 100, 110);

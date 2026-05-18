@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 22:06:01 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/04/17 23:44:15 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/05/18 13:55:07 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ class AForm {
 		const int			signGrade;
 		const int			execGrade;
 
+
+	protected:
+		void	canExecute(const Bureaucrat& executor) const;
+	public:
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -42,9 +46,6 @@ class AForm {
 			public:
 				const char *what() const throw();
 		};
-	protected:
-		void	canExecute(const Bureaucrat& executor) const;
-	public:
 		AForm();
 		AForm(const std::string& name, int signgrade, int execgrade);
 		AForm(const AForm& ori);

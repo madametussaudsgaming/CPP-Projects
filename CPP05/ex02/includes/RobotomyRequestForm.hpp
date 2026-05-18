@@ -6,9 +6,12 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 22:16:18 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/04/17 15:01:47 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/05/16 18:54:22 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
 
@@ -29,3 +32,5 @@ class RobotomyRequestForm : public AForm {
 		void execute(const Bureaucrat &executor) const;
 		const std::string& getTarget() const;
 };
+
+#endif
