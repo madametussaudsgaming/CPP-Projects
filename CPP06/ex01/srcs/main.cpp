@@ -15,10 +15,13 @@
 int main()
 {
 	Data ori;
-	ori.data = 10;
-	std::cout<<ori.data<<std::endl;
-	uintptr_t middle = Serializer::serialize(&ori);
-	Data* final = Serializer::deserialize(middle);
-	std::cout<<final->data<<std::endl;
-	std::cout << "Pointers match: " << (final == &ori ? "true" : "false") << std::endl;
+	ori.value = 42;
+	ori.name = "test";
+
+	uintptr_t raw = Serializer::serialize(&ori);
+	Data* ptr = Serializer::deserialize(raw);
+
+	std::cout << "value: " << ptr->value << std::endl;
+	std::cout << "name:  " << ptr->name << std::endl;
+	std::cout << "Pointers match: " << (ptr == &ori ? "true" : "false") << std::endl;
 }

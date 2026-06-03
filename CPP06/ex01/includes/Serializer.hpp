@@ -13,17 +13,9 @@
 #ifndef SERIALIZER_HPP
 #define SERIALIZER_HPP
 
-#include <cstdlib>
 #include <iostream>
-#include <limits>
-#include <string>
-#include <cmath>
-#include <iomanip>
 #include <stdint.h>
-
-struct Data {
-	uintptr_t data;
-};
+#include "Data.hpp"
 
 class Serializer {
 	public:

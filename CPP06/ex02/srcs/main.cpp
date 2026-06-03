@@ -14,8 +14,9 @@
 
 int main()
 {
-	Base *derivedClass = generate();
-	identify(derivedClass);
-	identify(*derivedClass);
-	delete derivedClass;
+	std::srand(static_cast<unsigned int>(time(NULL)));
+	Base *obj = generate();
+	identify(obj);
+	identify(*obj);
+	delete obj;
 }

@@ -27,9 +27,11 @@ ScalarConverter::ScalarConverter(const ScalarConverter &other) {  *this = other;
 
 bool	ScalarConverter::isChar(const std::string &rep)
 {
-	if (rep.empty() || rep.length() != 1 || !std::isprint(rep[0]) || std::isdigit(rep[0]))
-		return false;
-	return (true);
+	if (rep.length() == 1 && std::isprint(rep[0]) && !std::isdigit(rep[0]))
+		return true;
+	if (rep.length() == 3 && rep[0] == '\'' && rep[2] == '\'' && std::isprint(rep[1]))
+		return true;
+	return false;
 }
 
 bool	ScalarConverter::isInt(const std::string &rep)
@@ -123,19 +125,33 @@ bool ScalarConverter::isPseudoLiteral(const std::string &rep)
 }
 
 static void printChar(const char &c) {
-  if (std::isprint(c)) {
-    std::cout << "Char Representation: "
-              << "'" << c << "'" << std::endl;
-  } else
-    std::cout << "Char Representation: NON-DISPLAYABLE"<< std::endl;
+	if (std::isprint(c))
+		std::cout << "char: '" << c << "'" << std::endl;
+	else
+		std::cout << "char: Non displayable" << std::endl;
 }
 
 static void changeChar(const std::string &rep)
 {
-	printChar(rep[0]);
-	std::cout<<"Int Representation: "<< static_cast<int>(rep[0])<<std::endl;
-	std::cout<<"Float Representation: "<< static_cast<float>(rep[0])<<"f"<<std::endl;
-	std::cout<<"Double Representation: "<< static_cast<double>(rep[0])<<std::endl;
+	char c = (rep.length() == 1) ? rep[0] : rep[1];
+	printChar(c);
+	std::cout << "int: " << static_cast<int>(c) << std::endl;
+
+	float f = static_cast<float>(c);
+	float fIntPart;
+	std::cout << "float: ";
+	if (std::modf(f, &fIntPart) == 0.0f)
+		std::cout << std::fixed << std::setprecision(1);
+	std::cout << f << "f" << std::endl;
+	std::cout.unsetf(std::ios::fixed);
+
+	double d = static_cast<double>(c);
+	double dIntPart;
+	std::cout << "double: ";
+	if (std::modf(d, &dIntPart) == 0.0)
+		std::cout << std::fixed << std::setprecision(1);
+	std::cout << d << std::endl;
+	std::cout.unsetf(std::ios::fixed);
 }
 
 static void changeNumbers(const std::string &rep)
@@ -143,22 +159,22 @@ static void changeNumbers(const std::string &rep)
 	long double num = std::strtold(rep.c_str(), NULL);
 
 	if (num < std::numeric_limits<char>::min() || num > std::numeric_limits<char>::max())
-		std::cout<<"Char Representation: OVERFLOWS"<<std::endl;
+		std::cout << "char: impossible" << std::endl;
 	else
 		printChar(static_cast<char>(num));
 
 	if (num < std::numeric_limits<int>::min() || num > std::numeric_limits<int>::max())
-		std::cout<<"Int Representation: OVERFLOWS"<<std::endl;
+		std::cout << "int: impossible" << std::endl;
 	else
-		std::cout<<"Int Representation: "<<std::atoi(rep.c_str())<<std::endl;
+		std::cout << "int: " << static_cast<int>(num) << std::endl;
 
 	if (num < -std::numeric_limits<float>::max() || num > std::numeric_limits<float>::max())
-		std::cout<<"Float Representation: OVERFLOWS"<<std::endl;
+		std::cout << "float: impossible" << std::endl;
 	else
 	{
 		float f = std::strtof(rep.c_str(), NULL);
 		float fIntPart;
-		std::cout << "Float Representation: ";
+		std::cout << "float: ";
 		if (std::modf(f, &fIntPart) == 0.0f)
 			std::cout << std::fixed << std::setprecision(1);
 		std::cout << f << "f" << std::endl;
@@ -166,12 +182,12 @@ static void changeNumbers(const std::string &rep)
 	}
 
 	if (num < -std::numeric_limits<double>::max() || num > std::numeric_limits<double>::max())
-		std::cout<<"Double Representation: OVERFLOWS"<<std::endl;
+		std::cout << "double: impossible" << std::endl;
 	else
 	{
 		double d = std::strtod(rep.c_str(), NULL);
 		double dIntPart;
-		std::cout << "Double Representation: ";
+		std::cout << "double: ";
 		if (std::modf(d, &dIntPart) == 0.0)
 			std::cout << std::fixed << std::setprecision(1);
 		std::cout << d << std::endl;
@@ -185,52 +201,37 @@ static void changeNumbers(const std::string &rep)
 
 static void changePseudoLiteral(const std::string &rep)
 {
-	std::cout<<"Char Representation: NONE"<<std::endl;
-	std::cout<<"Int Representation: NONE"<<std::endl;
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
 	if (rep.find("nan") != std::string::npos)
 	{
-		std::cout << "Float Representation: nanf"<< std::endl;
-		std::cout << "Double Representation: nan" << std::endl;
+		std::cout << "float: nanf" << std::endl;
+		std::cout << "double: nan" << std::endl;
 	}
 	else if (rep.find("inf") != std::string::npos)
 	{
-		std::cout << "Float Representation: "<<rep[0]<<"inff" << std::endl;
-		std::cout << "Double Representation: "<<rep[0]<<"inf" << std::endl;
+		std::cout << "float: " << rep[0] << "inff" << std::endl;
+		std::cout << "double: " << rep[0] << "inf" << std::endl;
 	}
 }
 
 void ScalarConverter::convert(const std::string &representation)
 {
 	if (isChar(representation))
-	{
-		std::cout<<"IS CHAR"<<std::endl;
-  		changeChar(representation);
-	}
+		changeChar(representation);
 	else if (isInt(representation))
-	{
-		std::cout<<"IS INT"<<std::endl;
 		changeNumbers(representation);
-	}
 	else if (isFloat(representation))
-	{
-		std::cout<<"IS FLOAT"<<std::endl;
 		changeNumbers(representation);
-	}
 	else if (isDouble(representation))
-	{
-		std::cout<<"IS DOUBLE"<<std::endl;
 		changeNumbers(representation);
-	}
 	else if (isPseudoLiteral(representation))
-	{
 		changePseudoLiteral(representation);
-	}
 	else
-		std::cout<<"UNKNOWN"<<std::endl;
-
-	// std::cout<<isChar(representation)<<std::endl;
-	// std::cout<<isInt(representation)<<std::endl;
-	// std::cout<<isFloat(representation)<<std::endl;
-	// std::cout<<isDouble(representation)<<std::endl;
-	// std::cout<<isPseudoLiteral(representation)<<std::endl;
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: impossible" << std::endl;
+		std::cout << "double: impossible" << std::endl;
+	}
 }

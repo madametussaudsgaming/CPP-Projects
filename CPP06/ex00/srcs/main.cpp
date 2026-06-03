@@ -14,9 +14,10 @@
 #include <iostream>
 
 int main(int argc, char **argv) {
-  if (argc == 3)
-    return (1);
-  std::string abc = argv[1];
-  ScalarConverter::convert(abc);
-  std::cout<<std::endl<<abc<<std::endl;
+	if (argc != 2)
+	{
+		std::cerr << "Usage: ./convert <literal>" << std::endl;
+		return (1);
+	}
+	ScalarConverter::convert(argv[1]);
 }
