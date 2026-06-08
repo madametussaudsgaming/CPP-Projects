@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "Array.hpp"
-#include <stdio.h>
-
 
 int main()
 {
@@ -32,20 +30,28 @@ int main()
 	}
 
 	try {
-		int numbers[] = {1, 2, 3, 4, 5};
-		Array<char> obj(5);
+		Array<int> obj(5);
 		for (int i = 0; i < 5; i++)
-		{
-			obj[i] = numbers[i];
-			std::cout << "Index " << i << " = ";
-			printf("%d\n", obj[i]);
-		}
-		obj[2] = 2;
-		std::cout << "Index 2 = ";
-		printf("%d\n", obj[2]);
+			obj[i] = i + 1;
+		Array<int> copy(obj);
+		copy[2] = 99;
+		std::cout << "original[2] = " << obj[2] << " (should be 3)" << std::endl;
+		std::cout << "copy[2]     = " << copy[2] << " (should be 99)" << std::endl;
+		Array<int> assigned;
+		assigned = obj;
+		assigned[0] = 42;
+		std::cout << "original[0] = " << obj[0] << " (should be 1)" << std::endl;
+		std::cout << "assigned[0] = " << assigned[0] << " (should be 42)" << std::endl;
 	}
 	catch (const std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
 
+	try {
+		Array<int> obj(3);
+		obj[5];
+	}
+	catch (const std::exception &e) {
+		std::cout << "Out of bounds: " << e.what() << std::endl;
+	}
 }

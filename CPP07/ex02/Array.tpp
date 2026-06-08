@@ -10,12 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Array.hpp"
-
-template <class T> Array<T>::Array() : siz() {
-	this->array = new T[0];
-	this->siz = 0;
-};
+template <class T> Array<T>::Array() : array(new T[0]), siz(0) {};
 
 template <class T> Array<T>::Array(unsigned int n) : siz(n) {
 	this->array = new T[n];
@@ -48,6 +43,12 @@ template <class T> unsigned int Array<T>::size() const {
 };
 
 template <class T> T &Array<T>::operator[] (unsigned int i) {
+	if (i >= this->size())
+		throw OutOfRange();
+	return this->array[i];
+};
+
+template <class T> const T &Array<T>::operator[] (unsigned int i) const {
 	if (i >= this->size())
 		throw OutOfRange();
 	return this->array[i];

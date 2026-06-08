@@ -30,6 +30,7 @@ template <class T> class Array {
 		~Array();
 
 		T &operator[](unsigned int i);
+		const T &operator[](unsigned int i) const;
 		class OutOfRange : public std::exception {
 			const char *what() const throw();
 		};
