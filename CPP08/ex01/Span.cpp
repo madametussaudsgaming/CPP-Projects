@@ -6,19 +6,28 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 22:15:34 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/06/16 23:02:01 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/06/18 17:33:06 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span() : size_(0) {}
+Span::Span() : size_(0) {
+	std::cout << "Default Constructor called!" << std::endl;
+}
 
-Span::Span(unsigned int n) : size_(n) {}
+Span::Span(unsigned int n) : size_(n) {
+	std::cout << "Constructor called!" << std::endl;
+}
 
-Span::Span(const Span& other) : size_(other.size_), intStore(other.intStore) {}
+Span::Span(const Span& other) : size_(0) {
+	std::cout << "Copy Constructor called!" << std::endl;
+	this->size_ = other.size_;
+	this->intStore = other.intStore;
+}
 
 Span& Span::operator=(const Span& other) {
+	std::cout << "Copy ASssignment operator called!" << std::endl;
 	if (this == &other)
 		return *this;
 	this->size_ = other.size_;
@@ -26,14 +35,24 @@ Span& Span::operator=(const Span& other) {
 	return *this;
 }
 
-Span::~Span() {}
+Span::~Span() {
+	std::cout << "Destructor called!" << std::endl;
+}
 
-
-
-void Span::addNumber(int n) {
-  if (this->intStore.size() >= this->size_)
+void Span::addNumber(int number) {
+  if (this->intStore.size() + 1 > this->size_)
     throw noSpace();
-  this->intStore.push_back(n);
+  this->intStore.push_back(number);
+}
+
+void Span::addRandomNumbers(unsigned int quantity) {
+  std::srand(static_cast<unsigned int>(std::time(NULL)));
+  while (quantity > 0) {
+    int randomNum = std::rand() - RAND_MAX / 2;
+    this->addNumber(randomNum);
+    std::cout << "Random number added: " << randomNum << std::endl;
+    quantity--;
+  }
 }
 
 int		Span::shortestSpan() {

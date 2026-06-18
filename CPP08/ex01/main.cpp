@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 16:42:40 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/06/17 15:46:46 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/06/18 17:33:36 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,6 @@ int main() {
   std::vector<int> big;
   for (int i = 0; i < 10000; i++)
     big.push_back(std::rand());
-  Span large(10000);
-  large.addRange(big.begin(), big.end());
-  std::cout << "Shortest (10k): " << large.shortestSpan() << std::endl;
-  std::cout << "Longest  (10k): " << large.longestSpan() << std::endl;
 
   return 0;
 }
