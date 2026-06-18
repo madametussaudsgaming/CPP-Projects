@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 16:09:28 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/06/18 16:45:00 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/06/18 19:23:28 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,17 @@ public:
 	}
 	~MutantStack() {}
 
-	typedef typename C::iterator               iterator;
-	typedef typename C::const_iterator         const_iterator;
-	typedef typename C::reverse_iterator       reverse_iterator;
-	typedef typename C::const_reverse_iterator const_reverse_iterator;
+	typedef typename C::iterator				iterator;
+	typedef typename C::const_iterator			const_iterator;
+	typedef typename C::reverse_iterator		reverse_iterator;
+	typedef typename C::const_reverse_iterator	const_reverse_iterator;
 
-	iterator               begin()  { return this->c.begin(); }
-	iterator               end()    { return this->c.end(); }
-	const_iterator         begin()  const { return this->c.begin(); }
-	const_iterator         end()    const { return this->c.end(); }
-	reverse_iterator       rbegin() { return this->c.rbegin(); }
-	reverse_iterator       rend()   { return this->c.rend(); }
+	iterator				begin()  { return this->c.begin(); }
+	iterator				end()    { return this->c.end(); }
+	const_iterator			begin()  const { return this->c.begin(); }
+	const_iterator			end()    const { return this->c.end(); }
+	reverse_iterator		rbegin() { return this->c.rbegin(); }
+	reverse_iterator		rend()   { return this->c.rend(); }
 };
 
 #endif
