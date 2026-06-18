@@ -12,22 +12,13 @@
 
 #include "Span.hpp"
 
-Span::Span() : size_(0) {
-	std::cout << "Default Constructor called!" << std::endl;
-}
+Span::Span() : size_(0) {}
 
-Span::Span(unsigned int n) : size_(n) {
-	std::cout << "Constructor called!" << std::endl;
-}
+Span::Span(unsigned int n) : size_(n) {}
 
-Span::Span(const Span& other) : size_(0) {
-	std::cout << "Copy Constructor called!" << std::endl;
-	this->size_ = other.size_;
-	this->intStore = other.intStore;
-}
+Span::Span(const Span& other) : size_(other.size_), intStore(other.intStore) {}
 
 Span& Span::operator=(const Span& other) {
-	std::cout << "Copy ASssignment operator called!" << std::endl;
 	if (this == &other)
 		return *this;
 	this->size_ = other.size_;
@@ -35,40 +26,28 @@ Span& Span::operator=(const Span& other) {
 	return *this;
 }
 
-Span::~Span() {
-	std::cout << "Destructor called!" << std::endl;
-}
+Span::~Span() {}
 
 
 
-void Span::addNumber(unsigned int n) {
-  std::srand(static_cast<unsigned int>(std::time(NULL)));
-  while (n > 0)
-  {
-    int randomNum = std::rand() % 150;
-	if (this->intStore.size() + 1 > this->size_)
-		throw (noSpace());
-    this->intStore.push_back(randomNum);
-    std::cout << "Number added: " << randomNum << std::endl;
-    n--;
-  }
+void Span::addNumber(int n) {
+  if (this->intStore.size() >= this->size_)
+    throw noSpace();
+  this->intStore.push_back(n);
 }
 
 int		Span::shortestSpan() {
 	if (this->intStore.size() < 2)
 		throw noSpanFound();
-	std::sort(this->intStore.begin(), this->intStore.end());
-	std::vector<int>::iterator it = this->intStore.begin();
-	int minSpan = abs(*it - *(it + 1));
-	//iterate through find smallest difference
-
-	while (it != this->intStore.end())
-	{
-		if (abs(*it - *(it + 1)) < minSpan)
-			minSpan = (abs(*it - *(it + 1)));
-		it++;
+	std::vector<int> sorted(this->intStore);
+	std::sort(sorted.begin(), sorted.end());
+	int minSpan = sorted[1] - sorted[0];
+	for (std::vector<int>::size_type i = 1; i + 1 < sorted.size(); ++i) {
+		int diff = sorted[i + 1] - sorted[i];
+		if (diff < minSpan)
+			minSpan = diff;
 	}
-	return (minSpan);
+	return minSpan;
 }
 
 int		Span::longestSpan() {

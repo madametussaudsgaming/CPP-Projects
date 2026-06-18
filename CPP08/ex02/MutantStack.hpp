@@ -6,34 +6,40 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 16:09:28 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/06/17 16:45:13 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/06/18 16:45:00 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 
-#include <algorithm>
-#include <exception>
-#include <iostream>
 #include <stack>
-#include <vector>
-#include <cstdlib>
-#include <ctime>
-#include "MutantStack.tpp"
+#include <deque>
 
 template <typename T, typename C = std::deque<T> >
 class MutantStack : public std::stack<T, C>
 {
-	MutantStack();
-	MutantStack(const MutantStack &other);
-	MutantStack& operator=(const MutantStack &other);
-	~MutantStack();
+public:
+	MutantStack() {}
+	MutantStack(const MutantStack &other) : std::stack<T, C>(other) {}
+	MutantStack& operator=(const MutantStack &other) {
+		if (this != &other)
+			std::stack<T, C>::operator=(other);
+		return *this;
+	}
+	~MutantStack() {}
 
-	typedef typename C::iterator iter;
+	typedef typename C::iterator               iterator;
+	typedef typename C::const_iterator         const_iterator;
+	typedef typename C::reverse_iterator       reverse_iterator;
+	typedef typename C::const_reverse_iterator const_reverse_iterator;
 
-	iter begin();
-	iter end();
+	iterator               begin()  { return this->c.begin(); }
+	iterator               end()    { return this->c.end(); }
+	const_iterator         begin()  const { return this->c.begin(); }
+	const_iterator         end()    const { return this->c.end(); }
+	reverse_iterator       rbegin() { return this->c.rbegin(); }
+	reverse_iterator       rend()   { return this->c.rend(); }
 };
 
 #endif

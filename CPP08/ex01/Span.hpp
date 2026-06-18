@@ -33,7 +33,14 @@ class Span
 		Span& operator=(const Span& other);
 		~Span();
 
-		void	addNumber(unsigned int n);
+		void	addNumber(int n);
+		template <typename InputIterator>
+		void	addRange(InputIterator first, InputIterator last) {
+			while (first != last) {
+				addNumber(*first);
+				++first;
+			}
+		}
 		int		shortestSpan();
 		int		longestSpan();
 
