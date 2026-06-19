@@ -39,11 +39,16 @@ int main() {
     std::cout << e.what() << std::endl;
   }
 
-  // 10,000 numbers via addRange
+  // 10,000 numbers via addNumbers (iterator range)
   std::srand(42);
   std::vector<int> big;
   for (int i = 0; i < 10000; i++)
     big.push_back(std::rand());
+
+  Span bigSpan(10000);
+  bigSpan.addNumbers(big.begin(), big.end());
+  std::cout << "Shortest span (10k): " << bigSpan.shortestSpan() << std::endl;
+  std::cout << "Longest span (10k):  " << bigSpan.longestSpan()  << std::endl;
 
   return 0;
 }
