@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 16:42:40 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/06/16 21:40:34 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/06/19 10:32:08 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int main() {
   try {
     std::cout << "Searching for 99 in list: ";
     easyfind(lst, 99);
-    std::cout << "Found!" << std::endl;
+    std::cout << "Found!" << std::endl; 
   } catch (std::exception &e) {
     std::cout << e.what() << std::endl;
   }
