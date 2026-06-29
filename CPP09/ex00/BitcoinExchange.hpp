@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 19:44:45 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/06/24 20:40:43 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/06/28 18:41:01 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@
 class BitcoinExchange {
 	private:
 		std::string		_date;
-		float			_value;
-		std::map<std::string, float> _btcData;
+		double			_value;
+		std::string		_csvDelimiter;
+		std::map<std::string, double> _btcData;
 	public:
 		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange& other);
@@ -35,6 +36,7 @@ class BitcoinExchange {
 		~BitcoinExchange();
 
 		void fillValues(std::string lineData);
+		void processInput(std::string filename);
 
 };
 
