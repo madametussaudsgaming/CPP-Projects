@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 22:38:26 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/06/30 08:48:45 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/06/30 09:27:29 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ rpn::rpn(std::string str1) {
 	for (std::size_t i = 0; i < str1.size(); ++i)
 	{
 		unsigned char c = static_cast<unsigned char>(str1[i]);
-		std::cout << _rpnstack.top() << std::endl;
 		if (std::isspace(c))
 				continue;
 		else if (isdigit(c))
@@ -57,22 +56,26 @@ void rpn::_processDigit(char c) {
 }
 
 void rpn::_processOperator(char c) {
+	if (_rpnstack.size() == 0)
+		throw ("EMPTY STACK");
+	if (_rpnstack.size() < 2)
+		throw ("NOT ENOUGH OPERANDS");
 	int val1 = _rpnstack.top();
 	_rpnstack.pop();
 	int val2 = _rpnstack.top();
 	_rpnstack.pop();
 	switch (c) {
 		case '+':
-			_rpnstack.push(val1 + val2);
+			_rpnstack.push(val2 + val1);
 			break;
 		case '-':
-			_rpnstack.push(val1 - val2);
+			_rpnstack.push(val2 - val1);
 			break;
 		case '*':
-			_rpnstack.push(val1 * val2);
+			_rpnstack.push(val2 * val1);
 			break;
 		case '/':
-			_rpnstack.push(val1 / val2);
+			_rpnstack.push(val2 / val1);
 			break;
 		default:
 			throw ("UNKNOWN OPERATOR");
