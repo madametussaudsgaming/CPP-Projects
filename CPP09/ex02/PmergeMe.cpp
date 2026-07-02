@@ -6,12 +6,13 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 12:51:55 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/07/01 12:54:47 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/07/01 23:16:58 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
+//self explanatorily
 bool isPositiveInteger(const std::string &s, long &out)
 {
 	if (s.empty())
@@ -41,6 +42,7 @@ bool isPositiveInteger(const std::string &s, long &out)
 	return true;
 }
 
+//loops argv with the upstairs
 bool parseArgs(int argc, char **argv, std::vector<long> &numbers)
 {
 	for (int i = 1; i < argc; ++i)
@@ -53,6 +55,7 @@ bool parseArgs(int argc, char **argv, std::vector<long> &numbers)
 	return !numbers.empty();
 }
 
+//kid named philosophers
 double elapsedMicroseconds(const struct timeval &start, const struct timeval &end)
 {
 	double sec = static_cast<double>(end.tv_sec - start.tv_sec) * 1000000.0;
@@ -60,15 +63,7 @@ double elapsedMicroseconds(const struct timeval &start, const struct timeval &en
 	return sec + usec;
 }
 
-// ---------------------------------------------------------------------
-// Shared helper: pure math, no container involved.
-//
-// Produces the insertion order for the "small" elements once the main
-// chain (sorted "large" elements) is known. This follows the classic
-// Jacobsthal-number grouping that minimises the number of binary-search
-// comparisons: 3, 2, 5, 4, 11, 10, 9, 8, 7, 6, 21, 20, ... (1-indexed,
-// index 1 / b1 is handled separately by the caller, always inserted first).
-// ---------------------------------------------------------------------
+//builds da Jacobsthal sequence, emits the indices bounding each binary search.
 std::vector<std::size_t> PmergeMe::jacobsthalOrder(std::size_t m)
 {
 	std::vector<std::size_t> order;
@@ -89,6 +84,10 @@ std::vector<std::size_t> PmergeMe::jacobsthalOrder(std::size_t m)
 	for (std::size_t t = 2; t < jacob.size(); ++t)
 	{
 		std::size_t bound = (jacob[t] < m) ? jacob[t] : m;
+		//"Where does the current Jacobsthal group end?"
+		//jacob[t] gives the raw next boundary number (1, 3, 5, 11...),
+		//but if it overshoots the number of pairs we actually have (m),
+		//we cap it at m. So bound is always the highest follower index in the current group.
 		for (std::size_t idx = bound; idx > prevBound; --idx)
 			order.push_back(idx);
 		prevBound = bound;
@@ -103,9 +102,6 @@ static bool pairFirstLess(const std::pair<long, long> &a, const std::pair<long, 
 	return a.first < b.first;
 }
 
-// ---------------------------------------------------------------------
-// std::vector implementation
-// ---------------------------------------------------------------------
 std::vector<long> PmergeMe::fordJohnsonVector(std::vector<long> arr)
 {
 	std::size_t n = arr.size();
@@ -114,6 +110,7 @@ std::vector<long> PmergeMe::fordJohnsonVector(std::vector<long> arr)
 
 	bool hasOdd = (n % 2 != 0);
 	long oddOne = 0;
+	// 0. split the straghgler
 	if (hasOdd)
 	{
 		oddOne = arr.back();
@@ -183,9 +180,7 @@ std::vector<long> PmergeMe::sortVector(const std::vector<long> &input)
 	return fordJohnsonVector(input);
 }
 
-// ---------------------------------------------------------------------
-// std::deque implementation (deliberately duplicated, not templated)
-// ---------------------------------------------------------------------
+//duplicated, not templated
 std::deque<long> PmergeMe::fordJohnsonDeque(std::deque<long> arr)
 {
 	std::size_t n = arr.size();
@@ -249,8 +244,3 @@ std::deque<long> PmergeMe::sortDeque(const std::deque<long> &input)
 {
 	return fordJohnsonDeque(input);
 }
-
-PmergeMe::PmergeMe() {}
-PmergeMe::PmergeMe(const PmergeMe &) {}
-PmergeMe& PmergeMe::operator=(const PmergeMe &) { return *this; }
-PmergeMe::~PmergeMe() {}

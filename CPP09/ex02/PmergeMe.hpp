@@ -20,11 +20,12 @@ public:
 	static std::vector<long>	sortVector(const std::vector<long> &input);
 	static std::deque<long>		sortDeque(const std::deque<long> &input);
 
+
 private:
 	PmergeMe();
 	PmergeMe(const PmergeMe &other);
 	PmergeMe &operator=(const PmergeMe &other);
-	~PmergeMe();
+	PmergeMe();
 
 	static std::vector<long>		fordJohnsonVector(std::vector<long> arr);
 	static std::deque<long>			fordJohnsonDeque(std::deque<long> arr);
