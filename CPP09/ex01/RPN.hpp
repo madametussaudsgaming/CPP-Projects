@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 22:16:09 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/06/30 08:44:02 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/07/02 13:10:23 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@ class rpn {
 	private:
 		std::stack<int, std::list<int> > _rpnstack;
 		std::string str;
-		
-		rpn(const rpn& other);
-		rpn& operator=(const rpn& other);
 
 		void _processOperator(char);
 		void _processDigit(char);
@@ -43,6 +40,8 @@ class rpn {
 	public:
 		rpn();
 		rpn(std::string str1);
+		rpn(const rpn& other);
+		rpn& operator=(const rpn& other);
 		~rpn();
 
 };
