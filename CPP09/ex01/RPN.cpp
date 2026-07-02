@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 22:38:26 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/06/30 09:27:29 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/07/02 13:04:26 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ void rpn::_processOperator(char c) {
 			_rpnstack.push(val2 * val1);
 			break;
 		case '/':
+			if (val1 == 0)
+				throw ("CANNOT DIVIDE BY 0");
 			_rpnstack.push(val2 / val1);
 			break;
 		default:
